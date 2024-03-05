@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <meta http-equiv="cache-control" content="no-store, no-cache, must-revalidate, max-age=0">
+    <meta http-equiv="pragma" content="no-cache">
+    
+    <script>
+    if (typeof history.replaceState === 'function') {
+        history.replaceState(null, null, location.href);
+    }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<header class="app-header">
+        <h1>Social Security Solution App</h1>
+    </header>
+    <br/>
+    <div class="login-container">
+        <h2>User Login</h2>
+        <form action="loginvalidate" method="POST">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="usr" name="usr" placeholder="Enter your username" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="passwd" name="passwd" placeholder="Enter your password" required>
+            </div>
+            
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+        <p id="error-message"></p>
+    </div>
+    <script>
+    // Checking if 'error' query parameter is true
+        if (window.location.search.includes('error=true')) {
+            document.getElementById('error-message').textContent = 'Invalid username or password.';
+            
+             history.replaceState(null, null, window.location.pathname);
+        }
+	</script>
+</body>
+
+</html>
